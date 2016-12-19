@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Отзыв</title>
+	<meta name="robots" content="noindex, nofollow"/>
+	<link rel="stylesheet"  media="screen" href="styles.css" >
+	
+</head>
+<body>
+<nav role="main_h">
+		<ul >
+			<li ><a href="new 1.html">Главная</a></li>
+			<li><a href="Контакты.html">Контакты</a></li>
+			<li><a href="information.html">Информация</a></li>
+			<li><a href="доставка.html">Доставка</a></li>
+			<li><a href="Католог.html">Каталог</a></li>
+			<li><a href="index1.html">Отзыв</a></li>
+		</ul>
+	</nav>
+<div class="title1">
+<h1>На данной странице вы можете оставить свое сообщение</h1>
+</div>
+<br>
+<form class="contact_form" action="contact-form.php" method="post">
+	<p>
+            <label for="name">Имя:</label>
+            <input type="text"  name="name" placeholder="Введите ваше имя" required pattern ="^[а-яА-Яa-zA-Z]+$"/>
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Введите электронный адрес" required pattern ="^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$"/>
+        </p>
+        <p>
+            <label for="tel">Телефон:</label>
+            <input type="tel" name="tel" placeholder="Введите номер телефона" required pattern="^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$"/>
+        </p>
+        <p>
+            <label for="message">Ваше сообщение:</label>
+            <textarea name="message" cols="40" rows="6" required></textarea>
+        </p>
+		<input name="bezspama" type="text" style="display:none" value="" />
+        <p>
+        	<button class="submit" type="submit">Отправить сообщение</button>
+        </p>
+</form>
+<form class="button" action="new 1.html" method="get">
+<p>
+<input type="submit" value="Вернуться на главную страницу">
+</p>
+</form>
+</body>
+</html>

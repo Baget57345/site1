@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style(inf).css" />
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">	
+		<!--<base href="https://autotrader.by">-->
+		 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="js/jquery.hoverIntent.minified.js"></script>
+		<script type="text/javascript" src="js/jquery.dcmegamenu.1.3.js"></script>
+		<script type="text/javascript" src="js/jquery.tipTip.js"></script>
+		<script type="text/javascript">$(document).ready(function($){$('#mega-menu-tut').dcMegaMenu({rowItems: '3',speed: 5, effect: 'slide'});$(function(){$(".flag").tipTip();});});</script>
+
+<title>Информация</title>
+
+</head>
+<body>
+<header>
+<h1>Car from the USA</h1>
+	<nav role="main_h">
+		<ul >
+			<li ><a href="new 1.html">Главная</a></li>
+			<li><a href="Контакты.html">Контакты</a></li>
+			<li><a href="information.html">Информация</a></li>
+			<li><a href="доставка.html">Доставка</a></li>
+			<li><a href="Католог.html">Каталог</a></li>
+			<li><a href="index1.html">Отзыв</a></li>
+		</ul>
+	</nav>
+	<h3>Таможенный калькулятор</h3>										
+	<form name="thisform" action="">
+<div style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding:20px 0;margin:30px auto;width:95%;line-height:2.5em;">
+		<table align="center" border="0" cellpadding="5" cellspacing="5" width="100%">
+			<tbody>
+				<tr>
+					<td width="255">Месяц и год выпуска автомобиля:</td>
+					<td>
+						<select id="month" style="padding:5px;">
+							<option value="1">Июнь</option>
+							<option value="2">Июль</option>
+							<option value="3">август</option>
+							<option value="4">сентябрь</option>
+							<option value="5">октябрь</option>
+							<option value="6">ноябрь</option>
+							<option value="7">декабрь</option>
+							<option value="8">январь</option>
+							<option value="9">февраль</option>
+							<option value="10">март</option>
+							<option value="11">апрель</option>
+							<option value="12">май</option>
+						</select>&nbsp;&nbsp;
+						<input id="year" name="year" size="6" maxlength="4" style="padding:5px;" />&nbsp;&nbsp; пример: <span class="cred">1996</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Объем двигателя в куб.см:</td>
+					<td><input id="vol" name="vol" size="6" maxlength="4" style="padding:5px;" />&nbsp;&nbsp; пример: <span class="cred">2500</span></td>
+				</tr>
+				<tr class="dcost" style="display:none;">
+					<td>Стоимость автомобиля, евро:</td>
+					<td><input id="cost" name="cost" size="6" maxlength="6" style="padding:5px;" /></td>
+				</tr>
+				<tr>
+					<td style="padding-top:10px;"><a href="javascript:rascet();" class="button big">Рассчитать</a></td>
+					<td id="result" style="padding-top:10px;"><div id="itog3" class="b font-20" style="display:none;">&nbsp;</div></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</form>
+<script  type='text/javascript'>
+		function rascet() {
+			today = new Date();
+				var nowyear = today.getFullYear();
+			var nowmonth = today.getMonth() + 1;
+			var month = $('#month').val();
+			var year = $('#year').val();
+			var vol = $('#vol').val();
+			var cost = $('#cost').val();
+			var kurs = 1.9;
+			if (nowmonth > month) year--;
+			if(nowyear-year<=3) {
+				if(cost < 8500) {
+					if(cost * 0.54 > vol * 2.5) price = cost * 0.48; else price = vol * 2.5;}
+				else if(cost < 16700) {
+					if(cost * 0.48 > vol * 3.5) price = cost * 0.48; else price = vol * 3.5;}
+				else if(cost < 42300) {
+					if(cost * 0.48 > vol * 5.5) price = cost * 0.48; else price = vol * 5.5;}
+				else if(cost < 84500) {
+					if(cost * 0.48 > vol * 7.5) price = cost * 0.48; else price = vol * 7.5;}
+				else if(cost < 169000) {
+					if(cost * 0.48 > vol * 15) price = cost * 0.48; else price = vol * 15;}
+				else {
+					if(cost * 0.48 > vol * 20) price = cost * 0.48; else price = vol * 20;}
+			}
+			else if(nowyear-year<=5) {
+				if(vol < 1000) price = vol * 1.5;
+				else if(vol < 1500) price = vol * 1.7;
+				else if(vol < 1800) price = vol * 2.5;
+				else if(vol < 2300) price = vol * 2.7;
+				else if(vol < 3000) price = vol * 3;
+				else price = vol * 3.6;
+			}
+			else {
+				if(vol < 1000) price = vol * 3;
+				else if(vol < 1500) price = vol * 3.2;
+				else if(vol < 1800) price = vol * 3.5;
+				else if(vol < 2300) price = vol * 4.8;
+				else if(vol < 3000) price = vol * 5;
+				else price = vol * 5.7;
+			}
+			/*		
+			$('#itog').val(price);
+			$('#itog2').val(price * kurs);*/
+			str = 'Таможенная пошлина: <span class="cred b">' + price + ' &euro;</span>';
+			$('#itog3').hide().empty();
+			$('#itog3').append(str);
+			$('#itog3').show();
+		}
+
+		$('#year').keyup(function (){
+		today = new Date();
+		var nowyear = today.getFullYear();
+		var year = $('#year').val();
+		if(nowyear-year<=3){$('.dcost').show();$('#result').attr('rowspan',3);}else{ $('.dcost').hide();$('#result').attr('rowspan',2);}
+		});
+	</script>				</div>
+
+	<table width="80%" border="1" cellpadding="3" cellspacing="0">
+	<thead>
+		<tr>
+			<th style="padding-bottom:10px;">Возраст автомобиля</th>
+			<th style="padding-bottom:10px;">Объем двигателя, куб. см</th>
+			<th style="padding-bottom:10px;">Ставка пошлины за 1 куб. см</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td rowspan="6" style="background:#f0f0f0;text-align:center;"><strong>более 5 лет</strong></td>
+			<td>&nbsp;до 1000</td>
+			<td>&nbsp;3 евро</td>
+		</tr>
+		<tr>
+			<td>&nbsp;от 1000 до 1500</td>
+			<td>&nbsp;3,2 евро</td>
+		</tr>
+		<tr>
+			<td>&nbsp;от 1500 до 1800</td>
+			<td>&nbsp;3,5 евро</td>
+		</tr>
+		<tr>
+			<td>&nbsp;от 1800 до 2300</td>
+			<td>&nbsp;4,8 евро</td>
+		</tr>
+		<tr>
+			<td>&nbsp;от 2300 до 3000</td>
+			<td>&nbsp;5 евро</td>
+		</tr>
+		<tr>
+			<td>&nbsp;более 3000</td>
+			<td>&nbsp;5,7 евро</td>
+		</tr>
+		<tr>
+			<td rowspan="6" style="background:#D4D4D4;text-align:center;"><strong>От 3 до 5 лет<br />
+			включительно</strong></td>
+			<td>&nbsp;до 1000</td>
+			<td>&nbsp;1,5 евро</td>
+		</tr>
+		<tr>
+			<td>&nbsp;от 1000 до 1500</td>
+			<td>&nbsp;1,7 евро</td>
+		</tr>
+		<tr>
+			<td>&nbsp;от 1500 до 1800</td>
+			<td>&nbsp;2,5 евро</td>
+		</tr>
+		<tr>
+			<td>&nbsp;от 1800 до 2300</td>
+			<td>&nbsp;2,7 евро</td>
+		</tr>
+		<tr>
+			<td>&nbsp;от 2300 до 3000</td>
+			<td>&nbsp;3 евро</td>
+		</tr>
+		<tr>
+			<td>&nbsp;более 3000</td>
+			<td>&nbsp;3,6 евро</td>
+		</tr>
+		<tr>
+			<td rowspan="7" style="background:#BABABA;text-align:center;">&nbsp;<strong>Не более 3 лет</strong></td>
+			<td colspan="2">&nbsp;стоимостью до 8500 &euro; - 54% таможенной стоимости, но не менее 2,5 &euro; за 1 куб. см</td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;стоимостью от 8500 до 16700 &euro; - 48% таможенной стоимости, но не менее 3,5 &euro; за 1 куб. см</td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;стоимостью от 16700 до 42300 &euro; - 48% таможенной стоимости, но не менее 5,5 &euro; за 1 куб. см</td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;стоимостью от 42300 до 84500 &euro; - 48% таможенной стоимости, но не менее 7,5 &euro; за 1 куб. см</td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;стоимостью от 84500 до 169000 &euro; - 48% таможенной стоимости, но не менее 15 &euro; за 1 куб. см</td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;стоимостью свыше 169000 &euro; - 48% таможенной стоимости, но не менее 20 &euro; за 1 куб. см</td>
+		</tr>
+	</tbody>
+</table>
+
+</header>
+<section>
+	 <h6>2016</h6>
+</section>
+</body>
+</html>
